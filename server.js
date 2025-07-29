@@ -25,3 +25,8 @@ app.use('/menu', menuItemRoutes);
 app.listen(PORT, () => {
   console.log("Server is listening on port 3000");
 });
+
+
+app.get('/healthz', (req, res) => {
+  res.send('OK');
+});
