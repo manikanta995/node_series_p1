@@ -4,9 +4,11 @@ const db = require('./db');
 const bodyparser = require('body-parser');
 const personRoutes = require('./routes/personRoutes');
 const menuItemRoutes = require('./routes/menuItemRoutes');
+require('dotenv').config();
 
 // Middleware
 app.use(bodyparser.json());
+const PORT = process.env.PORT || 3000;
 
 // Default Route
 app.get('/', (req, res) => {
@@ -20,6 +22,6 @@ app.use('/menu', menuItemRoutes);
 
 
 // Start Server
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("Server is listening on port 3000");
 });
